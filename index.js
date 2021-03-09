@@ -137,14 +137,7 @@ client.on('message', (message) => {
                     message.channel.send('Successfully given roles!')      
                 }
             }
-            if (command === "question") {
-            if (message.author.id !== "723974262528016435"  || message.author.id !== "356919501322846220") { //ifstart
-            message.channel.send('**This command is for lexi only.** <@' + message.author.id + '>')
-            return 
-            } else {
-                message.author.send("Will you go out with me? \n \n Say yes or no in the vc. \n \n If it is a no I don't want it to change anything. \n \n -MrJordinn")
-            }
-        }
+
                 
 
 
