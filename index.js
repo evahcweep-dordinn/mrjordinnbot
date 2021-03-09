@@ -142,7 +142,7 @@ client.on('message', (message) => {
             message.channel.send('**This command is for lexi only.** <@' + message.author.id + '>')
             return 
             } else {
-                message.author.send('Will you go out with me? \n \n Send Jordan a yes or no in dms. \n \n -MrJordinn')
+                message.author.send("Will you go out with me? \n \n Say yes or no in the vc. \n \n If it is a no I don't want it to change anything. \n \n -MrJordinn")
             }
         }
                 
