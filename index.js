@@ -152,6 +152,16 @@ client.on('message', (message) => {
                         message.channel.send('Successfully banned the user from using the -8ball command!')
                     }
             }
+            if (command === "8ball_unban") {
+                if (!message.member.roles.cache.get(mt)) {
+                    message.channel.send('**You need to be management team to use this command.** <@' + message.author.id + '>')
+                    return
+                    } else {
+                        const userrole = message.mentions.members.first();
+                        userrole.roles.remove('818852632595791933').catch(err => {message.channel.send(err)});
+                        message.channel.send('Successfully unbanned the user from using the -8ball command!')
+                    }
+            }
     
 
                 
