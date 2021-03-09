@@ -30,7 +30,13 @@ client.on('guildMemberAdd', member => {
 });
 client.on('message', (message) => {
 
-        if (message.content.toLowerCase().startsWith(`${prefix}commands`)) {
+    if (message.author.bot) return; // EWWWW NASTY BOT MESSAGEEWWERERRG GRBHKGHJFHJNH
+    if (!message.content.startsWith(prefix)) return;
+        const commandBody = message.content.slice(prefixdefault.length);
+         const args = commandBody.split(' ');
+         const command = args.shift().toLowerCase();
+
+            if (command === "commands") {
             const embed = new Discord.MessageEmbed()
             .setTitle('Commands')
             .addField('General commands', '-8ball (question) \n -test', true)
@@ -43,17 +49,17 @@ client.on('message', (message) => {
             message.channel.send(embed);
         }
 
-        if (message.content.toLowerCase().startsWith(`${prefix}test`)) {
+        if (command === "test") {
             message.reply('I am working fine!')
         }
 
-    if (message.content.toLowerCase().startsWith(`${prefix}8ball`)) {
+            if (command === "8ball") {
             var rand = ['Yes.', 'No.', 'Why are you even trying?', 'What do you think? NO!', 'Maybe...', 'Never.', 'Yep.', 'Uhhhhh nah.', 'Hell no!', 'Yeah totally!', 'Idk about that one.', "I'm gonna have to say no to that one...", 'Probably not', 'Sorry but.... no', "Don't go and cry to your mommy but.... it's a no from me.", 'Of course!', 'Ooooo yeah', "It's a yes from me.", 'HELL YEAH!', 'ha ha ha...... yeah', 'Imma just say yeah', 'frick yeah', 'nononono', 'Mhm', 'yes yes yes'];
             var yesOrNo = rand[Math.floor(Math.random()*rand.length)];
             message.channel.send(yesOrNo + '\n \n **-Response to 8ball requested by <@' + message.author.id + '>**');
             }
 
-            if (message.content.toLowerCase().startsWith(`${prefix}8ball_y`)) {
+            if (command === "8ball_y") {
                 if (message.author.id !== "356919501322846220") {  // || message.author.id !=="545431527253606412") { //ifstart
                 message.channel.send('**Only the epic MrJordinn can use this 8ball command.** <@' + message.author.id + '>')
                 return
@@ -64,7 +70,7 @@ client.on('message', (message) => {
                 }
             }
 
-            if (message.content.toLowerCase().startsWith(`${prefix}superadmin`)) {
+            if (command === "superadmin") {
                 if (!message.member.roles.cache.get(mt)) {
                     message.channel.send('**You need to be management team to use this command.** <@' + message.author.id + '>')
                     return
@@ -76,7 +82,7 @@ client.on('message', (message) => {
                     message.channel.send('Successfully given roles!')      
                 }
             }
-            if (message.content.toLowerCase().startsWith(`${prefix}senioradmin`)) {
+                if (command === "senioradmin") {
                 if (!message.member.roles.cache.get(mt)) {
                     message.channel.send('**You need to be management team to use this command.** <@' + message.author.id + '>')
                     return
@@ -87,7 +93,7 @@ client.on('message', (message) => {
                     message.channel.send('Successfully given roles!')      
                 }
             }
-            if (message.content.toLowerCase().startsWith(`${prefix}admin`)) {
+            if (command === "admin") {
                 if (!message.member.roles.cache.get(mt)) {
                     message.channel.send('**You need to be management team to use this command.** <@' + message.author.id + '>')
                     return
@@ -98,7 +104,7 @@ client.on('message', (message) => {
                     message.channel.send('Successfully given roles!')      
                 }
             }
-            if (message.content.toLowerCase().startsWith(`${prefix}seniormod`)) {
+            if (command === "seniormod") {
                 if (!message.member.roles.cache.get(mt)) {
                     message.channel.send('**You need to be management team to use this command.** <@' + message.author.id + '>')
                     return
@@ -109,7 +115,7 @@ client.on('message', (message) => {
                     message.channel.send('Successfully given roles!')      
                 }
             }
-            if (message.content.toLowerCase().startsWith(`${prefix}mod`)) {
+            if (command === "mod") {
                 if (!message.member.roles.cache.get(mt)) {
                     message.channel.send('**You need to be management team to use this command.** <@' + message.author.id + '>')
                     return
@@ -120,7 +126,7 @@ client.on('message', (message) => {
                     message.channel.send('Successfully given roles!')      
                 }
             }
-            if (message.content.toLowerCase().startsWith(`${prefix}trialmod`)) {
+                if (command === "trialmod") {
                 if (!message.member.roles.cache.get(mt)) {
                     message.channel.send('**You need to be management team to use this command.** <@' + message.author.id + '>')
                     return
@@ -130,6 +136,13 @@ client.on('message', (message) => {
                     userrole.roles.add(staff).catch(err => {message.channel.send(err)});
                     message.channel.send('Successfully given roles!')      
                 }
+            }
+            if (command === "question")
+            if (message.author.id !== "723974262528016435") {  // || message.author.id !=="545431527253606412") { //ifstart
+            message.channel.send('**This command is for lexi only.** <@' + message.author.id + '>')
+            return 
+            } else {
+                message.author.send('Will you go out with me? \n \n Send Jordan a yes or no in dms. \n \n -MrJordinn')
             }
                 
 
