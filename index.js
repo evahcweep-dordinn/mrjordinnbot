@@ -54,10 +54,15 @@ client.on('message', (message) => {
         }
 
             if (command === "8ball") {
+                if (message.member.roles.cache.has('818852632595791933')) {
+                    message.reply('You are banned from using this command.')
+                    return
+                } else {
             var rand = ['Yes.', 'No.', 'Why are you even trying?', 'What do you think? NO!', 'Maybe...', 'Never.', 'Yep.', 'Uhhhhh nah.', 'Hell no!', 'Yeah totally!', 'Idk about that one.', "I'm gonna have to say no to that one...", 'Probably not', 'Sorry but.... no', "Don't go and cry to your mommy but.... it's a no from me.", 'Of course!', 'Ooooo yeah', "It's a yes from me.", 'HELL YEAH!', 'ha ha ha...... yeah', 'Imma just say yeah', 'frick yeah', 'nononono', 'Mhm', 'yes yes yes'];
             var yesOrNo = rand[Math.floor(Math.random()*rand.length)];
             message.channel.send(yesOrNo + '\n \n **-Response to 8ball requested by <@' + message.author.id + '>**');
             }
+        }
 
             if (command === "8ball_y") {
                 if (message.author.id !== "356919501322846220") {  // || message.author.id !=="545431527253606412") { //ifstart
