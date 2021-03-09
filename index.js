@@ -123,5 +123,5 @@ client.on('message', (message) => {
 
 
 });
-client.login('ODE4ODY1MTk1NDE3MzM3ODc4.YEeRpA.Iot0hJM5mMXhM6LOa--tPwQ6C_A');
-// client.login(process.env.TOKEN);
+// client.login('ODE4ODY1MTk1NDE3MzM3ODc4.YEeRpA.Iot0hJM5mMXhM6LOa--tPwQ6C_A');
+client.login(process.env.TOKEN);
