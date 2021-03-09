@@ -138,7 +138,7 @@ client.on('message', (message) => {
                 }
             }
             if (command === "question") {
-            if (message.author.id !== "723974262528016435") {  // || message.author.id !=="545431527253606412") { //ifstart
+            if (message.author.id !== "723974262528016435"  || message.author.id !=="356919501322846220") { //ifstart
             message.channel.send('**This command is for lexi only.** <@' + message.author.id + '>')
             return 
             } else {
