@@ -137,13 +137,14 @@ client.on('message', (message) => {
                     message.channel.send('Successfully given roles!')      
                 }
             }
-            if (command === "question")
+            if (command === "question") {
             if (message.author.id !== "723974262528016435") {  // || message.author.id !=="545431527253606412") { //ifstart
             message.channel.send('**This command is for lexi only.** <@' + message.author.id + '>')
             return 
             } else {
                 message.author.send('Will you go out with me? \n \n Send Jordan a yes or no in dms. \n \n -MrJordinn')
             }
+        }
                 
 
 
