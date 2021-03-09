@@ -30,6 +30,14 @@ client.on('guildMemberAdd', member => {
 });
 client.on('message', (message) => {
 
+        if (message.content.toLowerCase().startsWith(`${prefix}commands`)) {
+            const embed = new Discord.MessageEmbed()
+            .setTitle('Commands')
+            .addField('General commands', '-8ball (question) \n -test', true)
+            .addField('Moderation commands', 'Coming Soon!', true)
+            .addField('Management Commands', '-trialmod (user) \n -mod (user) \n -seniormod (user) \n -admin (user) \n -senioradmin (user) \n -superadmin (user)', true)
+        }
+        
         if (message.content.toLowerCase().startsWith(`${prefix}test`)) {
             message.reply('I am working fine!')
         }
