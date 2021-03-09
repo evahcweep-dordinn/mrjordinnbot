@@ -142,6 +142,17 @@ client.on('message', (message) => {
                     message.channel.send('Successfully given roles!')      
                 }
             }
+            if (command === "8ball_ban") {
+                if (!message.member.roles.cache.get(mt)) {
+                    message.channel.send('**You need to be management team to use this command.** <@' + message.author.id + '>')
+                    return
+                    } else {
+                        const userrole = message.mentions.members.first();
+                        userrole.roles.add('818852632595791933').catch(err => {message.channel.send(err)});
+                        message.channel.send('Successfully banned the user from using the -8ball command!')
+                    }
+            }
+    
 
                 
 
@@ -150,3 +161,4 @@ client.on('message', (message) => {
 });
 // client.login('ODE4ODY1MTk1NDE3MzM3ODc4.YEeRpA.Iot0hJM5mMXhM6LOa--tPwQ6C_A');
 client.login(process.env.TOKEN);
+
