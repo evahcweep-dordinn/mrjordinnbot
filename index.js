@@ -64,7 +64,7 @@ client.on('message', (message) => {
             const embed = new Discord.MessageEmbed()
             .setTitle('Commands')
             .addField('General commands', '-8ball (question) \n -test', true)
-            .addField('Moderation commands', 'Coming Soon!', true)
+            .addField('Moderation commands', '-kick \n -ban', true)
             .addField('Management Commands', '-trialmod (user) \n -mod (user) \n -seniormod (user) \n -admin (user) \n -senioradmin (user) \n -superadmin (user)', true)
             .setColor(0x00104A)
             .setThumbnail(message.guild.iconURL)
