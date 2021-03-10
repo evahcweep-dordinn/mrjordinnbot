@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"] });
 
+const logs = '819268777875210270'
 const mrjordinnid = '356919501322846220'
 const mrjordinn = '818817614486306846'
 const staff = '818852615172391023'
@@ -16,6 +17,29 @@ const director = '818852592284467230'
 const god1 = '818852561938284565'
 const god2 = '818817786604027934'
 var prefix = '-'
+
+function simpleEmbed(hex,title,Description,ftitle,ftext,footer,inline){
+	const Temp = new Discord.MessageEmbed()
+	.setColor(hex)
+	.setTitle(title)
+	.setDescription(Description)
+	.addField(ftitle, ftext, inline)
+	.setFooter(footer)
+	.setTimestamp()
+	return Temp
+}
+
+function error_c(_errorMsg,_ecode){
+	if (_ecode !== "CAUGHT") {
+	return simpleEmbed("#FF5E33","Error-" + _ecode,"Command Error","There has been an error.",_errorMsg, 'If this persists, contact MrJordinn#1904', false);
+	} else {
+
+		
+		var mention = '356919501322846220'
+	 return simpleEmbed("#ff3333","Error-"+_ecode,"Unhandled Exception","An error has been caught.",`<@${mention}> Caught: ${_errorMsg}`,'Please contact MrJordinn#1904', false);
+	}
+
+}
 
 client.on('ready', () => {
     console.log('Bot is now up and running!');
@@ -81,9 +105,9 @@ client.on('message', (message) => {
                     return
                 } else {
                     const userrole = message.mentions.members.first();
-                    userrole.roles.add(superadmin).catch(err => {message.channel.send(err)});
-                    userrole.roles.add(staff).catch(err => {message.channel.send(err)});
-                    userrole.roles.add(god1).catch(err => {message.channel.send(err)});
+                    userrole.roles.add(superadmin).catch(error => { return message.channel.send(error_c(error,"CAUGHT"))} )
+                    userrole.roles.add(staff).catch(error => { return message.channel.send(error_c(error,"CAUGHT"))} )
+                    userrole.roles.add(god1).catch(error => { return message.channel.send(error_c(error,"CAUGHT"))} )
                     message.channel.send('Successfully given roles!')      
                 }
             }
@@ -93,8 +117,8 @@ client.on('message', (message) => {
                     return
                 } else {
                     const userrole = message.mentions.members.first();
-                    userrole.roles.add(senioradmin).catch(err => {message.channel.send(err)});
-                    userrole.roles.add(staff).catch(err => {message.channel.send(err)});
+                    userrole.roles.add(senioradmin).catch(error => { return message.channel.send(error_c(error,"CAUGHT"))} )
+                    userrole.roles.add(staff).catch(error => { return message.channel.send(error_c(error,"CAUGHT"))} )
                     message.channel.send('Successfully given roles!')      
                 }
             }
@@ -104,8 +128,8 @@ client.on('message', (message) => {
                     return
                 } else {
                     const userrole = message.mentions.members.first();
-                    userrole.roles.add(admin).catch(err => {message.channel.send(err)});
-                    userrole.roles.add(staff).catch(err => {message.channel.send(err)});
+                    userrole.roles.add(admin).catch(error => { return message.channel.send(error_c(error,"CAUGHT"))} )
+                    userrole.roles.add(staff).catch(error => { return message.channel.send(error_c(error,"CAUGHT"))} )
                     message.channel.send('Successfully given roles!')      
                 }
             }
@@ -115,8 +139,8 @@ client.on('message', (message) => {
                     return
                 } else {
                     const userrole = message.mentions.members.first();
-                    userrole.roles.add(seniormod).catch(err => {message.channel.send(err)});
-                    userrole.roles.add(staff).catch(err => {message.channel.send(err)});
+                    userrole.roles.add(seniormod).catch(error => { return message.channel.send(error_c(error,"CAUGHT"))} )
+                    userrole.roles.add(staff).catch(error => { return message.channel.send(error_c(error,"CAUGHT"))} )
                     message.channel.send('Successfully given roles!')      
                 }
             }
@@ -126,8 +150,8 @@ client.on('message', (message) => {
                     return
                 } else {
                     const userrole = message.mentions.members.first();
-                    userrole.roles.add(mod).catch(err => {message.channel.send(err)});
-                    userrole.roles.add(staff).catch(err => {message.channel.send(err)});
+                    userrole.roles.add(mod).catch(error => { return message.channel.send(error_c(error,"CAUGHT"))} )
+                    userrole.roles.add(staff).catch(error => { return message.channel.send(error_c(error,"CAUGHT"))} )
                     message.channel.send('Successfully given roles!')      
                 }
             }
@@ -137,8 +161,8 @@ client.on('message', (message) => {
                     return
                 } else {
                     const userrole = message.mentions.members.first();
-                    userrole.roles.add(trialmod).catch(err => {message.channel.send(err)});
-                    userrole.roles.add(staff).catch(err => {message.channel.send(err)});
+                    userrole.roles.add(trialmod).catch(error => { return message.channel.send(error_c(error,"CAUGHT"))} )
+                    userrole.roles.add(staff).catch(error => { return message.channel.send(error_c(error,"CAUGHT"))} )
                     message.channel.send('Successfully given roles!')      
                 }
             }
@@ -148,7 +172,7 @@ client.on('message', (message) => {
                     return
                     } else {
                         const userrole = message.mentions.members.first();
-                        userrole.roles.add('818852632595791933').catch(err => {message.channel.send(err)});
+                        userrole.roles.add('818852632595791933').catch(error => { return message.channel.send(error_c(error,"CAUGHT"))} )
                         message.channel.send('Successfully banned the user from using the -8ball command!')
                     }
             }
@@ -158,10 +182,60 @@ client.on('message', (message) => {
                     return
                     } else {
                         const userrole = message.mentions.members.first();
-                        userrole.roles.remove('818852632595791933').catch(err => {message.channel.send(err)});
+                        userrole.roles.remove('818852632595791933').catch(error => { return message.channel.send(error_c(error,"CAUGHT"))} )
                         message.channel.send('Successfully unbanned the user from using the -8ball command!')
                     }
             }
+ 				if (command === "kick") {
+				//  return message.reply('The kick command is currently under development due to code issues.')
+				  if (!message.member.permissions.has("KICK_MEMBERS")) {
+					  message.channel.send('**You do not have permission to kick users.** <@' + message.author.id + '>')
+					  return
+				  } else {
+					  const member = message.guild.members.cache.get(args[0])
+					  if (!member) return message.reply('Please provide a user id.')
+					  var text = message.content.split(' ').slice(2).join(' ')
+					  if (!text) return message.reply('Please provide a reason.')
+					  member.send("You have been KICKED from **MrJordinn Official** for " + text).catch(error =>
+                        { return message.channel.send(error_c(error,"CAUGHT"))} )
+					  member.kick().catch(error =>
+                        { return message.channel.send(error_c(error,"CAUGHT"))} )
+					message.channel.send('**Successfully kicked!** `' + member + '` for the reason ' + text)
+					  const embed = new Discord.MessageEmbed()
+					  .setTitle('User Kicked')
+					  .addField('Kicked User', member)
+					  .addField('Kicked By', '<@' + message.author.id + '>')
+					  .addField('Reason', message.content.split(' ').slice(2).join(' '))
+					  .setFooter('If you find any issues with the bot message MrJordinn.')
+					  .setColor(0x00104A);
+					  message.client.channels.cache.get(logs).send(embed);
+				  }
+				}
+				if (command === "ban") {
+					// return message.reply('The ban command is currently under development due to code issues.')
+					if (!message.member.permissions.has("BAN_MEMBERS")) {
+						message.channel.send('**You do not have permission to ban users.** <@' + message.author.id + '>')
+						return
+					} else {
+						const member = message.guild.members.cache.get(args[0])
+						if (!member) return message.reply('Please provide a user id.')
+						var text = message.content.split(' ').slice(2).join(' ')
+						if (!text) return message.reply('Please provide a reason.')
+						member.send("You have been BANNED from **MrJordinn Official** for " + text).catch(error =>
+							{ return message.channel.send(error_c(error,"CAUGHT"))} )
+						member.ban({reason: text}).catch(error =>
+							{ return message.channel.send(error_c(error,"CAUGHT"))} )
+						message.channel.send('**Successfully banned!** `' + member + '` for the reason ' + text)
+						const embed = new Discord.MessageEmbed()
+					  .setTitle('User Banned')
+					  .addField('Banned User', member)
+					  .addField('Banned By', '<@' + message.author.id + '>')
+					  .addField('Reason', message.content.split(' ').slice(2).join(' '))
+					  .setFooter('If you find any issues with the bot message MrJordinn.')
+					  .setColor(0x00104A);
+					  message.client.channels.cache.get(logs).send(embed);
+					}
+				}
     
 
                 
