@@ -45,12 +45,11 @@ client.on('ready', () => {
     console.log('Bot is now up and running!');
     client.user.setActivity("MrJordinn || Prefix -", {
         type: "LISTENING",
-    })
 })
 client.on('guildMemberAdd', member => {
-    const channel = member.guild.channels.cache.find(channel => channel.name === "👋-welcome");
+    const channel = member.guild.channels.cache.find(channel => channel.name === "welcome");
     if (!channel) return;
-    channel.send(`Welcome to **MrJordinn Official!** ${member}`)
+    channel.send(`Welcome to **MrJordinn Official!**, ${member}!`)
 });
 client.on('message', (message) => {
 
