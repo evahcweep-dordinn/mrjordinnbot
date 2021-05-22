@@ -47,11 +47,11 @@ client.on('ready', () => {
         type: "LISTENING",
     })
 })
- 	client.on('guildMemberAdd', member => {
-    const channel = '818858717213753365' //member.guild.channels.cache.find(channel => channel.name === "welcome");
-    // if (!channel) return;
-    channel.send(`Welcome to MrJordinn Official, ${member}!`)
-})
+	client.on('guildMemberAdd', member => {
+    const channel = member.guild.channels.cache.find(channel => channel.name === "welcome");
+    if (!channel) return;
+    channel.send(`Welcome to th3c0nnman roleplay, ${member}!`)
+});
 
 client.on('message', (message) => {
 
