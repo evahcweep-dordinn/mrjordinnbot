@@ -43,7 +43,6 @@ function error_c(_errorMsg,_ecode){
 
 client.on('ready', () => {
     console.log('Bot is now up and running!');
-});
     client.user.setActivity("MrJordinn || Prefix -", {
         type: "LISTENING",
 });
