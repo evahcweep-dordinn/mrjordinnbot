@@ -45,6 +45,7 @@ client.on('ready', () => {
     console.log('Bot is now up and running!');
     client.user.setActivity("MrJordinn || Prefix -", {
         type: "LISTENING",
+	})
 })
 client.on('guildMemberAdd', member => {
     const channel = member.guild.channels.cache.find(channel => channel.name === "welcome");
