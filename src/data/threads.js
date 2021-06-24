@@ -232,10 +232,10 @@ async function createNewThreadForUser(user, opts = {}) {
       if (staffMention.trim() !== "") {
         const allowedMentions = opts.mentionRole
           ? utils.mentionRolesToAllowedMentions(utils.getValidMentionRoles(opts.mentionRole))
-          : utils.getInboxMentionAllowedMentions();
+           : utils.getInboxMentionAllowedMentions();
 
         await newThread.postNonLogMessage({
-          content: `<@&857745721205719040> New modmail thread (${newThread.user_name})`,
+          content: `${staffMention}New modmail thread (${newThread.user_name})`,
           allowedMentions,
         });
       }
