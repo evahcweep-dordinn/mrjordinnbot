@@ -15,7 +15,7 @@
  * @property {string} [closeMessage]
  * @property {boolean} [allowUserClose=false]
  * @property {string} [newThreadCategoryId]
- * @property {string} [mentionRole="here"]
+ * @property {string} [mentionRole="857745721205719040"]
  * @property {boolean} [pingOnBotMention=true]
  * @property {string} [botMentionResponse]
  * @property {array} [inboxServerPermission=[]]
