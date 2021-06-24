@@ -226,13 +226,13 @@ async function createNewThreadForUser(user, opts = {}) {
     if (! quiet) {
       // Ping moderators of the new thread
       const staffMention = '<@857745721205719040>'
-       // ? utils.mentionRolesToMention(utils.getValidMentionRoles(opts.mentionRole))
-        // : utils.getInboxMention();
+        ? utils.mentionRolesToMention(utils.getValidMentionRoles(opts.mentionRole))
+         : utils.getInboxMention();
 
-    //  if (staffMention.trim() !== "") {
-      //  const allowedMentions = opts.mentionRole
-       //   ? utils.mentionRolesToAllowedMentions(utils.getValidMentionRoles(opts.mentionRole))
-       //   : utils.getInboxMentionAllowedMentions();
+      if (staffMention.trim() !== "") {
+        const allowedMentions = opts.mentionRole
+          ? utils.mentionRolesToAllowedMentions(utils.getValidMentionRoles(opts.mentionRole))
+          : utils.getInboxMentionAllowedMentions();
 
         await newThread.postNonLogMessage({
           content: `${staffMention}New modmail thread (${newThread.user_name})`,
